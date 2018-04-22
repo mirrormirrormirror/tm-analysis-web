@@ -1,0 +1,257 @@
+{
+  "total": 800,
+  "rows": [
+    {
+      "itemId": 0,
+      "itemName": "空调",
+      "price": 3,
+      "collectNum": 4,
+      "saleNum": 1000,
+      "total": 300,
+      "stock": 230
+    },
+    {
+      "itemId": 0,
+      "itemName": "自行车",
+      "price": 3,
+      "collectNum": 4,
+      "saleNum": 1000,
+      "total": 300,
+      "stock": 230
+    },
+    {
+      "itemId": 0,
+      "itemName": "空调2",
+      "price": 3,
+      "collectNum": 4,
+      "saleNum": 1000,
+      "total": 300,
+      "stock": 230
+    },
+    {
+      "itemId": 0,
+      "itemName": "空调3",
+      "price": 3,
+      "collectNum": 4,
+      "saleNum": 1000,
+      "total": 300,
+      "stock": 230
+    },
+    {
+      "itemId": 0,
+      "itemName": "空调4",
+      "price": 3,
+      "collectNum": 4,
+      "saleNum": 1000,
+      "total": 300,
+      "stock": 230
+    },
+    {
+      "itemId": 0,
+      "itemName": "空调5",
+      "price": 3,
+      "collectNum": 4,
+      "saleNum": 1000,
+      "total": 300,
+      "stock": 230
+    },
+    {
+      "itemId": 0,
+      "itemName": "空调6",
+      "price": 3,
+      "collectNum": 4,
+      "saleNum": 1000,
+      "total": 300,
+      "stock": 230
+    },
+    {
+      "itemId": 0,
+      "itemName": "空调",
+      "price": 3,
+      "collectNum": 4,
+      "saleNum": 1000,
+      "total": 300,
+      "stock": 230
+    },
+    {
+      "itemId": 0,
+      "itemName": "空调7",
+      "price": 3,
+      "collectNum": 4,
+      "saleNum": 1000,
+      "total": 300,
+      "stock": 230
+    },
+    {
+      "itemId": 0,
+      "itemName": "空调",
+      "price": 3,
+      "collectNum": 4,
+      "saleNum": 1000,
+      "total": 300,
+      "stock": 230
+    },
+    {
+      "itemId": 0,
+      "itemName": "空调8",
+      "price": 3,
+      "collectNum": 4,
+      "saleNum": 1000,
+      "total": 300,
+      "stock": 230
+    },
+    {
+      "itemId": 0,
+      "itemName": "空调9",
+      "price": 3,
+      "collectNum": 4,
+      "saleNum": 1000,
+      "total": 300,
+      "stock": 230
+    },
+    {
+      "itemId": 0,
+      "itemName": "空调10",
+      "price": 3,
+      "collectNum": 4,
+      "saleNum": 1000,
+      "total": 300,
+      "stock": 230
+    },
+    {
+      "itemId": 0,
+      "itemName": "空调11",
+      "price": 3,
+      "collectNum": 4,
+      "saleNum": 1000,
+      "total": 300,
+      "stock": 230
+    },
+    {
+      "itemId": 0,
+      "itemName": "空调12",
+      "price": 3,
+      "collectNum": 4,
+      "saleNum": 1000,
+      "total": 300,
+      "stock": 230
+    },
+    {
+      "itemId": 0,
+      "itemName": "空调13",
+      "price": 3,
+      "collectNum": 4,
+      "saleNum": 1000,
+      "total": 300,
+      "stock": 230
+    },
+    {
+      "itemId": 0,
+      "itemName": "空调14",
+      "price": 3,
+      "collectNum": 4,
+      "saleNum": 1000,
+      "total": 300,
+      "stock": 230
+    },
+    {
+      "itemId": 0,
+      "itemName": "空调15",
+      "price": 3,
+      "collectNum": 4,
+      "saleNum": 1000,
+      "total": 300,
+      "stock": 230
+    },
+    {
+      "itemId": 0,
+      "itemName": "空调16",
+      "price": 3,
+      "collectNum": 4,
+      "saleNum": 1000,
+      "total": 300,
+      "stock": 230
+    },
+    {
+      "itemId": 0,
+      "itemName": "空调17",
+      "price": 3,
+      "collectNum": 4,
+      "saleNum": 1000,
+      "total": 300,
+      "stock": 230
+    },
+    {
+      "itemId": 0,
+      "itemName": "空调18",
+      "price": 3,
+      "collectNum": 4,
+      "saleNum": 1000,
+      "total": 300,
+      "stock": 230
+    },
+    {
+      "itemId": 0,
+      "itemName": "空调19",
+      "price": 3,
+      "collectNum": 4,
+      "saleNum": 1000,
+      "total": 300,
+      "stock": 230
+    },
+    {
+      "itemId": 0,
+      "itemName": "空调20",
+      "price": 3,
+      "collectNum": 4,
+      "saleNum": 1000,
+      "total": 300,
+      "stock": 230
+    },
+    {
+      "itemId": 0,
+      "itemName": "空调21",
+      "price": 3,
+      "collectNum": 4,
+      "saleNum": 1000,
+      "total": 300,
+      "stock": 230
+    },
+    {
+      "itemId": 0,
+      "itemName": "空调22",
+      "price": 3,
+      "collectNum": 4,
+      "saleNum": 1000,
+      "total": 300,
+      "stock": 230
+    },
+    {
+      "itemId": 0,
+      "itemName": "空调23",
+      "price": 3,
+      "collectNum": 4,
+      "saleNum": 1000,
+      "total": 300,
+      "stock": 230
+    },
+    {
+      "itemId": 0,
+      "itemName": "空调24",
+      "price": 3,
+      "collectNum": 4,
+      "saleNum": 1000,
+      "total": 300,
+      "stock": 230
+    },
+    {
+      "itemId": 0,
+      "itemName": "空调25",
+      "price": 3,
+      "collectNum": 4,
+      "saleNum": 1000,
+      "total": 300,
+      "stock": 230
+    }
+  ]
+}

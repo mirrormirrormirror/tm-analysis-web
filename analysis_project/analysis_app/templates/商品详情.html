@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/item_analysis.css">
+    <link rel="stylesheet" href="../static/js/jquery-ui.css">
+    <script src="../static/js/bootstrap.js"></script>
+    <script src="../static/js/echarts.js"></script>
+</head>
+<body>
+<div id="item_contains">
+    <div id="item_contains_top">
+        <div id="item_meta">
+            <div class="thumbnail"><img alt="300x200"
+                                        src="https://img.alicdn.com/bao/uploaded/i2/820708319/TB2qx_5dkSWBuNjSszdXXbeSpXa_!!820708319.png">
+                <div class="caption" contenteditable="true">
+                    <p>永久山地车自行车单车变速男式学生成人越野铝合金</p>
+                    <p><a class="btn btn-primary" href="#">商品页面</a></p>
+                </div>
+            </div>
+        </div>
+        <div id="item_detail">
+            <div id="item_info">
+                <ul>
+                    <li>上市时间： 2017年夏季</li>
+                    <li>车架材质: 铝合金</li>
+                    <li>货号: 454512</li>
+                    <li>颜色分类: 19M黄 173-180cm 19</li>
+                    <li>品牌名称：Giant/捷安特</li>
+                    <li>车架类型: 硬车架</li>
+                    <li>轮径尺寸: 26英寸</li>
+                </ul>
+            </div>
+
+            <div id="keyword_weight">
+                {% include '商品关键词饼图.html' %}
+
+            </div>
+        </div>
+    </div>
+    <div id="item_contains_bottom">
+        <div id="item_contains_bottom_left">
+            <div class="analysis_picture">{% include '商品一周趋势.html' %}</div>
+            <div class="analysis_picture">{% include '商品相识度分析.html' %}</div>
+            <!--<div class="content-box">-->
+                <!--<div style="width: 240px; height: 32px; margin: 100px auto">-->
+                    <!--<input type="text" class="input" />-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div id="item_contains_bottom_right">
+            <div id="ci_yun">
+                <img src="../static/images/ciyun.png" width="97%" height="97%" style="float: right">
+            </div>
+            <div id="rank">
+                {% include '店铺榜单.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

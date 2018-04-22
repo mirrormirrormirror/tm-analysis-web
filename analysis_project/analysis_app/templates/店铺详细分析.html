@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="../static/css/zd-1.0.css">
+    <script type="text/javascript" src="../static/js/jquery.min.js"></script>
+</head>
+<body>
+<div class="main">
+    <div id="top">
+        <nav>
+            <!-- logo -->
+            <div class="nav-logo">
+                <a href="#"><img src="../static/images/logo.png" alt=""></a>
+            </div>
+            <!-- 菜单 -->
+            <ul class="nav-list">
+                <li><a href="">首页</a></li>
+                <li><a href="">个人
+                    <div class="carect"></div>
+                </a>
+                    <ul class="menu">
+                        <li><a href="">登录</a></li>
+                        <li><a href="">注册</a></li>
+                        <li><a href="">退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div id="contain">
+        <div id="mu_lu">{% include 'mu_lu.html' %}</div>
+        <div id="zhan_shi">
+            {% include '店铺详情.html' %}
+        </div>
+    </div>
+    <div id="bottom"></div>
+</div>
+</body>
+</html>

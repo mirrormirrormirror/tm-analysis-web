@@ -1,0 +1,43 @@
+
+<style>
+    #similarity_item{
+        width: 99%;
+        height: 99%;
+    }
+</style>
+<div id="similarity_item"  class="true_picture"></div>
+<script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('similarity_item'));
+var option = {
+    dataset: {
+        source: [
+            ['score', 'similarity', 'product'],
+            [89.3, 5, '小菜自行车'],
+            [57.1, 6, '凤凰山地自行车'],
+            [74.4, 6.6, '跑车'],
+            [50.1, 6.7, '小黄单车同款'],
+            [89.7, 6.9, '轻脚型自行车'],
+            [68.1, 7.4, '专业跑车'],
+            [19.6, 7.9, '比赛专用自行车'],
+            [10.6, 8.3, '耐跑型自行车'],
+            [32.7, 9.5, '职业自行车']
+        ]
+    },
+    grid: {containLabel: true},
+    xAxis: {name: 'similarity'},
+    yAxis: {type: 'category'},
+    series: [
+        {
+            type: 'bar',
+            encode: {
+                // Map the "amount" column to X axis.
+                x: 'similarity',
+                // Map the "product" column to Y axis
+                y: 'product'
+            }
+        }
+    ]
+};
+
+myChart.setOption(option);
+</script>

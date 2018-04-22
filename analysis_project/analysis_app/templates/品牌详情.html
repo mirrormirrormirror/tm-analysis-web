@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/brand.css">
+    <link rel="stylesheet" href="../static/js/jquery-ui.css">
+    <script src="../static/js/bootstrap.js"></script>
+    <script src="../static/js/echarts.js"></script>
+</head>
+<body>
+<div id="brand_contains">
+    <div id="brand_contains_top">
+        <div id="brand_name"><h3>品牌名称：云霄</h3></div>
+        <div id="brand_trend">{% include '品牌一周趋势.html' %}</div>
+        <div id="source">搜索来源图{% include '品牌关键词搜索来源.html' %}</div>
+    </div>
+    <div id="brand_contains_bottom">
+        <div id="brand_contains_bottom_left">
+            <div class="analysis_picture">{% include '品牌搜索展现.html' %}</div>
+            <div class="analysis_picture">
+                &nbsp&nbsp&nbsp&nbsp&nbsp品牌一周评论词云图
+                <img src="../static/images/ciyun.png" title="品牌一周评论词云图" width="97%" height="97%" style="float: right">
+
+            </div>
+        </div>
+        <div id="brand_contains_bottom_right">
+            <div class="rank">
+                {% include '店铺榜单.html' %}
+            </div>
+            <div class="rank">
+                {% include '商品榜单.html' %}
+            </div>
+        </div>
+    </div>
+    <div id="mai_jia_fen_bu">
+        {% include '某行业卖家分布图.html' %}
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/shop_analysis.css">
+    <link rel="stylesheet" href="../static/js/jquery-ui.css">
+    <script src="../static/js/bootstrap.js"></script>
+    <script src="../static/js/echarts.js"></script>
+</head>
+<body>
+<div id="shop_contains">
+    <div id="shop_contains_top">
+        <div id="shop_meta">
+            <div id="shop_logo"><img height="100%" width="100%"
+                                     src="https://gdp.alicdn.com/imgextra/i2/2258747714/TB2BaW.nR8kpuFjSspeXXc7IpXa_!!2258747714.jpg">
+            </div>
+            <div id="shop_name_info">
+                <ul>
+                    <li>店铺名称：<a href="https://detail.tmall.com/item.htm?spm=a1z10.5-b.w4011-8955051939.78.2300e838ekA57B&id=541782780060&rn=10310bdf77059d623c3dde9219b4ad6a&abbucket=3">维洛斯</a></li>
+                    <li>描述: 4.5</li>
+                    <li>服务: 4.7</li>
+                    <li>物流: 4.7</li>
+                </ul>
+            </div>
+            <div id="shop_score"></div>
+        </div>
+        <div id="shop_search_source">
+            <div class="source search_change">{% include '店铺搜索展现趋势.html' %}</div>
+            <div class="source">{% include '店铺关键词饼图.html' %}</div>
+            <div class="source">{% include '店铺类目饼图.html' %}</div>
+        </div>
+    </div>
+    <div id="shop_contains_bottom">
+        <div id="shop_contains_bottom_left">
+            <div class="analysis_picture">{% include '店铺一周趋势.html' %}</div>
+            <div class="analysis_picture">{% include '商品相识度分析.html' %}</div>
+        </div>
+        <div id="shop_contains_bottom_right">
+            <div id="ci_yun">
+                <img src="../static/images/ciyun.png" width="97%" height="97%" style="float: right">
+            </div>
+            <div id="rank">
+                {% include '商品榜单.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

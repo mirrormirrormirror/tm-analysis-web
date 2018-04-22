@@ -1,0 +1,107 @@
+<script src="../static/js/jquery-1.11.1.min.js"></script>
+<script src="../static/js/moment.js"></script>
+<script src="../static/js/daterangepicker.js"></script>
+<link rel="stylesheet" href="../static/css/daterangepicker.css">
+<link rel="stylesheet" href="../static/css/bootstrap.css">
+<link rel="stylesheet" href="../static/css/iconfont.css">
+<link rel="stylesheet" href="../static/css/jquery.range.css">
+<script src="../static/js/jquery.range.js"></script>
+<div>
+    <table width=100% style="text-align:right; margin-top: 20px; border-collapse:separate; border-spacing:10px;">
+        <tr>
+            <td class="td_name">销量范围：</td>
+            <td><input type="hidden" class="range-slider" id="sales_range" value="25,75"/></td>
+            <td class="td_name">库存范围：</td>
+            <td><input type="hidden" class="range-slider" id="stock_range" value="25,75"/></td>
+        </tr>
+        <tr>
+            <td class="td_name">收藏数范围：</td>
+            <td><input type="hidden" class="range-slider" id="collect_range" value="25,75"/></td>
+
+            <td class="td_name">日期选择：</td>
+            <td>
+                <div class="bjui-pageContent">
+                    <div class="form-group d_t_dater">
+                        <label class="col-sm-3 control-label"></label>
+                        <div class="col-sm-12">
+                            <div class="input-group">
+                                <button type="button" class="btn btn-default" id="daterange-btn">
+                    <span>
+                      <i class="icon iconfont icon-calendar1"></i> 日期选择
+                    </span>
+                                    <i class="icon iconfont icon-danxian-youjiantou-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>
+                <button class="btn btn-info">查询</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    $(function () {
+        $('.range-slider').jRange({
+            from: 0,
+            to: 100,
+            step: 1,
+            scale: [0, 25, 50, 75, 100],
+            format: '%s',
+            width: 300,
+            showLabels: true,
+            isRange: true
+        });
+
+        $("#get2").click(function () {
+            var aa = $(".range-slider").val();
+            alert(aa);
+        });
+    });
+
+
+    $('.ranges_1 ul').remove();
+    $('#daterange-btn').daterangepicker(
+        {
+            ranges: {
+                '全部': [moment(), moment().subtract(-1, 'days')],
+                '今天': [moment(), moment()],
+                '明天': [moment().subtract(-1, 'days'), moment().subtract(-1, 'days')],
+                '未来七天': [moment(), moment().subtract(-6, 'days')],
+                '未来30天': [moment(), moment().subtract(-29, 'days')],
+                '未来60天': [moment(), moment().subtract(-59, 'days'),]
+            },
+            startDate: moment(),
+            endDate: moment()
+        },
+        function (start, end, label) {
+            //label:通过它来知道用户选择的是什么，传给后台进行相应的展示
+            start_date = Date.parse(start._d)
+            end_date = Date.parse(end._d)
+            console.log(label)
+            if (label == '全部') {
+                $('#daterange-btn span').html('全部');
+            } else if (label == '今天') {
+                $('#daterange-btn span').html(start.format('YYYY/MM/DD'));
+            } else if (label == '明天') {
+                $('#daterange-btn span').html(start.format('YYYY/MM/DD'));
+            } else if (label == '未来七天') {
+                $('#daterange-btn span').html(start.format('YYYY/MM/DD') + '-' + end.format('YYYY/MM/DD'));
+            } else if (label == '未来30天') {
+                $('#daterange-btn span').html(start.format('YYYY/MM/DD') + '-' + end.format('YYYY/MM/DD'));
+            } else if (label == '未来60天') {
+                $('#daterange-btn span').html(start.format('YYYY/MM/DD') + '-' + end.format('YYYY/MM/DD'));
+            }
+
+        }
+    );
+</script>
+
+

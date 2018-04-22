@@ -1,0 +1,82 @@
+
+<script src="../static/js/echarts.js"></script>
+<div id="zou_shi"  class="true_picture"></div>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('zou_shi'));
+
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: '热门行业商品销量对比走势图'
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross',
+                label: {
+                    backgroundColor: '#6a7985'
+                }
+            }
+        },
+        legend: {
+            data: ['家具日用', '笔记本电脑', '床上用品', '大家电']
+        },
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: [
+            {
+                type: 'category',
+                boundaryGap: false,
+                data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value'
+            }
+        ],
+        series: [
+            {
+                name: '家具日用',
+                type: 'line',
+                stack: '总量',
+                areaStyle: {normal: {}},
+                data: [120, 132, 101, 134, 90, 230, 0]
+            },
+            {
+                name: '笔记本电脑',
+                type: 'line',
+                stack: '总量',
+                areaStyle: {normal: {}},
+                data: [220, 182, 191, 234, 290, 330, 310]
+            },
+            {
+                name: '床上用品',
+                type: 'line',
+                stack: '总量',
+                areaStyle: {normal: {}},
+                data: [150, 232, 201, 154, 190, 330, 410]
+            },
+            {
+                name: '大家电',
+                type: 'line',
+                stack: '总量',
+                areaStyle: {normal: {}},
+                data: [320, 332, 301, 334, 390, 330, 320]
+            }
+        ]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>

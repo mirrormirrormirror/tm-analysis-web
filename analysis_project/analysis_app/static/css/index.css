@@ -1,0 +1,55 @@
+.picture {
+    width: auto;
+    height: 33%;
+    border: 1px solid #5075ff;
+    margin-bottom: 10px;
+
+}
+
+.main {
+    width: 100%;
+    height: 2900px;
+    /*border: 5px solid #ff2211;*/
+    /*background-color: #ffff00;*/
+}
+
+#top {
+    width: 100%;
+    height: 90px;
+}
+
+#contain {
+    width: auto;
+    height: 1830px;
+    /*border: 1px solid #2b4dff;*/
+
+}
+
+#mu_lu {
+    width: auto;
+    height: 99%;
+    /*border: 1px solid #57ff22;*/
+    background: #263238;
+
+    float: left;
+}
+
+#zhan_shi {
+    width: 60%;
+    height: 100%;
+
+    float: right;
+    margin-right: 300px;
+}
+
+#bottom {
+    width: 100%;
+    height: 120px;
+    border: 1px solid #ff399a;
+
+}
+
+.true_picture {
+    width: 100%;
+    height: 100%;
+}

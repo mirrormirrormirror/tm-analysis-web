@@ -1,0 +1,91 @@
+*{padding:0px;margin:0px;} 
+.buttomtitle{width:280px;height:50px;background:url(../images/toptitle.png) no-repeat;background-position:bottom;background-position:left;}
+
+/* accordion_container */
+.accordion_container{
+	margin:0 auto;
+	width:280px;
+	
+}
+.accordion_container .content, .accordion_container .tab{
+	width:260px;
+	
+}
+.accordion_container .tab{
+	background:#fafafa;
+	height:30px;
+	float:left;
+	width: 1000px;
+	
+}
+.accordion_container .tab a:hover{
+	color:#F00;
+	text-decoration:underline;
+}
+.accordion_container .tab a{
+	color:#4B7196;
+	text-decoration:none;
+}
+a{color:inherit}
+.accordion_container .tab span{float:left;margin-top:10px;}
+.accordion_container .tab strong{ margin-left:15px;float:left;margin-top:10px;}
+.accordion_container .tab{
+	padding:10px;
+	
+}
+
+.accordion_container .content{
+	width:280px;
+	height:120px;
+	width:280px;
+}
+.accordion_container .content img{
+	display:block;
+	width:100px;
+	height:100px;
+	float:left;
+	margin:10px;
+}
+.accordion_container .first{
+	z-index:5;
+	top:0px;
+}
+.accordion_container .second{
+	z-index:4;
+	top:49px;
+}
+.accordion_container .third{
+	z-index:3;
+	top:98px;
+}
+.accordion_container .four{
+	z-index:2;
+	top:147px;
+}
+.accordion_container .file{
+	z-index:1;
+	top:196px;
+}
+.accordion{
+	position:relative;
+	overflow:hidden;
+	height:400px;
+}
+.accordion > div{
+	position:absolute;
+	left:0px;
+	border-left:1px solid #aaa;
+	border-right:1px solid #aaa;
+	left:-1px;
+	cursor:pointer;
+	background-color:#FFF;
+	width:280px;
+}
+.hide{
+}
+.word{width:130px;height:80px;float:right;margin-top:25px;margin-right:20px;text-decoration:none;}
+.word p a{ color:#4B7196;line-height:20px;text-decoration:none;}
+.word p a:hover{
+	color:#F00;
+	text-decoration:none;
+}

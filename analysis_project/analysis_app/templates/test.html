@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>testPictrue</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/nav.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="row-fluid">
+                <div class="span6">
+                    {% include 'daohang.html' %}
+                </div>
+                <div class="span6">
+                    <div class="row-fluid">
+                        <div class="span12">
+                            {% include '某行业卖家分布图.html' %}
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span12">
+                            {% include '某行业二级类目销量分布图.html' %}
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span12">
+                            {% include '热门行业商品销量对比走势图.html' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
