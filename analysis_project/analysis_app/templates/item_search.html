@@ -24,25 +24,7 @@
 <body>
 <div class="main">
     <div id="top">
-        <nav>
-            <!-- logo -->
-            <div class="nav-logo">
-                <a href="#"><img src="../static/images/logo.png" alt=""></a>
-            </div>
-            <!-- 菜单 -->
-            <ul class="nav-list">
-                <li><a href="">首页</a></li>
-                <li><a href="">个人
-                    <div class="carect"></div>
-                </a>
-                    <ul class="menu">
-                        <li><a href="">登录</a></li>
-                        <li><a href="">注册</a></li>
-                        <li><a href="">退出</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
+        {% include 'dao_hang.html' %}
     </div>
     <div id="contain">
         <div id="mu_lu">{% include 'mu_lu.html' %}</div>
@@ -51,28 +33,7 @@
             {% include 'table.html' %}
         </div>
     </div>
-    <div id="bottom">
-        <div id="footer2">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-8">
-                        版权所有：广州商学院 地址：广州市黄埔区九龙大道206号<br>
-                        学校办公室：020-82876130 招生电话：020-82872773<br>
-                        <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44011602000060"
-                           title="粤公网安备 44011602000060号" target="_blank"><img
-                                src="http://news.gzcc.cn/2016/images/gongan.png">粤公网安备 44011602000060号</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
-                            href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备15103669号</a>
-                    </div>
-                    <div class="col-sm-4 hidden-xs">
-                        <div class="fright"><a href="http://www.moe.gov.cn/">国家教育部</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
-                                href="http://www.gdhed.edu.cn/">广东教育厅</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
-                                href="http://www.scnu.edu.cn">华南师大</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
-                                href="http://www.gdmb.gov.cn">广东民办教育协会</a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="bottom">{% include 'footer.html' %}</div>
 </div>
 </body>
 </html>

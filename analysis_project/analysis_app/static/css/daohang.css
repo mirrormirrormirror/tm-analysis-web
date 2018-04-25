@@ -21,7 +21,7 @@
 	#daohangtiao{display: block !important;}
 	.navbar-collapse.collapse {
     	display: block !important;
-  		height: auto !important;
+  		height: auto ;
     	padding-bottom: 0;
     	overflow: visible !important;
   }

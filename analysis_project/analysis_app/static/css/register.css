@@ -20,7 +20,12 @@ html,body{
 	background-color: #383838;
 /*	height: 100%;
 	overflow: hidden;*/
+	background:url(../images/register.jpg) left top no-repeat;
 	position: relative;
+}
+
+form{
+	background-color: #fefff9;
 }
 body{
 	overflow-x: hidden;
@@ -37,7 +42,7 @@ body{
 	.c3 {width: 90%;}
 }
 @media only screen and (min-width:771px ) {
-	.c3 {width: 348px;}
+	.c3 {width: 360px;}
 }
 nav {
 	background: #383838 !important;
@@ -78,15 +83,17 @@ nav {
 	font-size: 12px;
 	letter-spacing: 6px;
 	line-height: 1.8;
-	color: #FFFFFF;
+	color: #101010;
 }
 .c3{
 	margin: 0 auto;
 	line-height:35px;
 }
 .c3 input{
-	background: #383838;
-	border-color: #5B5B5B;
+	background: #FFFFFF;
+	border-color: #f5f8ff;
+	height: 40px;
+
 }
 .c3 .form-control:focus {
   border-color: #FFFFFF;
@@ -119,15 +126,17 @@ nav {
 	margin-top: 10px;
 }
 .c3 .btn1{
-	background: #e4e4e4;
+	background: #515fc3;
 	font-size: 16px;
 	border-top: 1px solid #e4e4e4;
+	height: 50px;
 }
 .c3 .btn2{
-	background: #383838;
+	background: #5a418a;
 	border-top: 1px solid #e4e4e4;
 	font-size: 16px;
 	color: #FFFFFF;
+	height: 50px;
 }
 .c3 .c3-2-2{
 	color: #999;

@@ -7,28 +7,37 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
 }
+
+#login_form{
+    margin-top: 300px;
+}
+form{
+    /*border: 0.1px solid #f3f6ed;*/
+    background-color: #FFFFFF;
+}
 html,body{
 	font-family: "微软雅黑";
 	background-color: #383838;
 	/*height: 100%;
 	overflow: hidden;*/
+    background:url(../images/register.jpg) left top no-repeat;
 	position: relative;
 }
 body{
 	overflow-x: hidden;
-	
+
 }
 @media only screen and (min-width:993px ) {
 	.close {display: block;}
-	
+
 }
 @media only screen and (max-width:992px ) {
 	.close {display: none;}
@@ -50,7 +59,7 @@ nav {
 	text-shadow:none;
   	filter: alpha(opacity=100);
   	opacity: 1;
-  	transition: all .6s ease;	
+  	transition: all .6s ease;
 }
 .close i{
 	width: 30px;
@@ -61,6 +70,9 @@ nav {
 .close i:hover{
 	background-image: url(../images/close2.png);
 }
+
+
+
 
 .c2{
 	margin-top: 0;
@@ -78,14 +90,14 @@ nav {
 	font-size: 12px;
 	letter-spacing: 6px;
 	line-height: 1.8;
-	color: #FFFFFF;
+	color: #1b1616;
 }
 .c3{
 	margin: 0 auto;
 	line-height:35px;
 }
 .c3 input{
-	background: #383838;
+	background: rgba(252, 252, 252, 0.98);
 	border-color: #5B5B5B;
 }
 .c3 .form-control:focus {
@@ -112,7 +124,7 @@ nav {
 	margin-top: 10px;
 }
 .c3 .btn1{
-	background: #e4e4e4;
+	background: #1f80c5;
 	font-size: 16px;
 	border-top: 1px solid #e4e4e4;
 }
@@ -134,7 +146,7 @@ nav {
 .c3 .c3-2-1 a{
 	display: inline-block;
 	height: 24px;
-	width: 24px;	
+	width: 24px;
 }
 .c3 .c3-2-1 span{
 	height: 24px;
