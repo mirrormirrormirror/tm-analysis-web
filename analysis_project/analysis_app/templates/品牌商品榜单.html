@@ -82,15 +82,14 @@
 
 <h4>商品排名榜单</h4>
 <div class="ranklist">
-    <ol>
-        {% for i in shopTopItem %}
-        <li class="top">
+    {% for i in brandTopItem %}
+    <li class="top">
 
-            <p><a href={{ i.0 }}
-                  title={{ i.2 }}>{{ i.2 }}</a></p><span class="num">{{ i.1 }}人气</span>
-        </li>
-        {% endfor %}
-    </ol>
+        <p><a href={{ i.0 }}
+              title={{ i.2 }}>{{ i.2 }}</a></p><span class="num">{{ i.1 }}人气</span>
+    </li>
+    {% endfor %}
+
     <div class="clear"></div>
 </div>
 

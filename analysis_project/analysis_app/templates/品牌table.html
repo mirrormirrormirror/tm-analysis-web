@@ -22,7 +22,7 @@
         //初始化Table
         oTableInit.Init = function () {
             $('#table').bootstrapTable({
-                url: "http://localhost:9000/data/",         //请求后台的URL（*）
+                url: "http://localhost:9000/data/brand/brandInfo",         //请求后台的URL（*）
                 method: 'get',                      //请求方式（*）
                 toolbar: '#toolbar',                //工具按钮用哪个容器
                 striped: true,                      //是否显示行间隔色
@@ -49,27 +49,24 @@
                 columns: [{
                     checkbox: true
                 }, {
-                    field: 'itemId',
-                    title: '商品id'
+                    field: 'brandName',
+                    title: '品牌名称'
                 }, {
-                    field: 'itemName',
-                    title: '商品名称'
+                    field: 'collectNum',
+                    title: '收藏数'
                 }, {
-                    field: 'price',
-                    title: '价格'
-                }, {
-                    field: 'saleNum',
+                    field: 'monthSales',
                     title: '销量'
                 }, {
-                    field: 'stock',
+                    field: 'totalQuantity',
                     title: '库存'
                 }, {
                     field: 'operate',
                     title: '具体操作',
                     formatter: function (value, row, index) {
                         return [
-                            '<a class="remove" href="', row['itemId'], '" title="Remove">',
-                            '详细分析',
+                            '<a class="remove" href="', 'http://localhost:9000/brand/?brand=\\'+row['brandName'], '" title="Remove">',
+                            '品牌详细分析',
                             '</a>'
                         ].join('');
                     }

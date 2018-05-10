@@ -1,26 +1,28 @@
 <style>
-    #brand_week {
+    #shopEmotion {
         width: 99%;
         height: 99%;
     }
 </style>
-<div id="brand_week" class="true_picture"></div>
+<div id="shopEmotion" class="true_picture"></div>
+
+
 <script type="text/javascript">
     $.ajax({
         type: 'get',
-        url: "http://localhost:9000/brandTrend?brand={{ brand }}",
+        url: "http://localhost:9000/shopEmotion?shopUrl={{shopUrl}}",
         dataType: 'json',
         success: function (info) {
-            var myChart = echarts.init(document.getElementById('brand_week'));
+            var myChart = echarts.init(document.getElementById('shopEmotion'));
             var optionTren = {
                 title: {
-                    text: '商品一周趋势'
+                    text: '店铺情感指数展现'
                 },
                 tooltip: {
                     trigger: 'axis'
                 },
                 legend: {
-                    data: ['销量', '评论数']
+                    data: ['店铺情感指数']
                 },
                 grid: {
                     left: '3%',
@@ -43,21 +45,16 @@
                 },
                 series: [
                     {
-                        name: '销量',
+                        name: '情感指数',
                         type: 'line',
                         stack: '总量',
-                        data: info["salesTrend"]
-                    },
-                    {
-                        name: '评论数',
-                        type: 'line',
-                        stack: '总量',
-                        data: info["commentNumTrend"]
+                        data: info
                     }
                 ]
             };
             myChart.setOption(optionTren);
         }
     });
+
 
 </script>

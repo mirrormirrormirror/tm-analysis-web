@@ -1,26 +1,28 @@
 <style>
-    #brand_week {
+    #item_week_search {
         width: 99%;
         height: 99%;
     }
 </style>
-<div id="brand_week" class="true_picture"></div>
+<div id="item_week_search" class="true_picture"></div>
+
+
 <script type="text/javascript">
     $.ajax({
         type: 'get',
-        url: "http://localhost:9000/brandTrend?brand={{ brand }}",
+        url: "http://localhost:9000/itemWeekDisplay?itemId={{itemId}}",
         dataType: 'json',
         success: function (info) {
-            var myChart = echarts.init(document.getElementById('brand_week'));
+            var myChart = echarts.init(document.getElementById('item_week_search'));
             var optionTren = {
                 title: {
-                    text: '商品一周趋势'
+                    text: '商品一周搜索展现'
                 },
                 tooltip: {
                     trigger: 'axis'
                 },
                 legend: {
-                    data: ['销量', '评论数']
+                    data: ['一周搜索展现']
                 },
                 grid: {
                     left: '3%',
@@ -43,21 +45,16 @@
                 },
                 series: [
                     {
-                        name: '销量',
+                        name: '搜索指数',
                         type: 'line',
                         stack: '总量',
-                        data: info["salesTrend"]
-                    },
-                    {
-                        name: '评论数',
-                        type: 'line',
-                        stack: '总量',
-                        data: info["commentNumTrend"]
+                        data: info
                     }
                 ]
             };
             myChart.setOption(optionTren);
         }
     });
+
 
 </script>

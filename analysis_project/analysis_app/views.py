@@ -1,7 +1,9 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from analysis_app.migrations.service.user_service import userLogin
 from django.shortcuts import render
-
+from analysis_app.searchInfo import SearchServer
+import json
 from analysis_app.migrations.service.user_service import userLogin
 
 
@@ -23,11 +25,21 @@ def login(request):
 
 
 def brand(request):
-    return render(request, '品牌详细分析.html')
+    brand = request.GET['brand']
+    bin = SearchServer()
+    brandTopShop = bin.start(method='brandTopShop', param='brand=' + brand[1:])  # brandTopItem
+    brandTopItem = bin.start(method='brandTopItem', param='brand=' + brand[1:])
+    brandName = brand.replace("\\", "").replace("xa0", "")
+    return render(request, '品牌详细分析.html',
+                  {'brandTopShop': brandTopShop, 'brandTopItem': brandTopItem, 'brand': brand, "brandName": brandName})
 
 
 def dian_pu_analysis(request):
-    return render(request, '店铺详细分析.html')
+    shopUrl = request.GET['shopUrl']
+    bin = SearchServer()
+    shopImage = bin.shopImage(shopUrl)
+    shopTopItem = bin.start(method='shopTopItem', param='shopUrl=' + shopUrl)
+    return render(request, '店铺详细分析.html', {'shopImage': shopImage, 'shopTopItem': shopTopItem, 'shopUrl': shopUrl})
 
 
 def dian_pu(request):
@@ -39,114 +51,188 @@ def brand_search(request):
 
 
 def item_analysis(request):
-    return render(request, "商品详情分析.html")
-    # return render(request, "table.html")
-    # return render(request,"某行业二级类目销量分布图.html")
-    # return render(request, '某行业卖家分布图.html')
-    # return render(request, '热门行业商品销量对比走势图.html')
+    itemId = request.GET['itemId']
+    bin = SearchServer()
+    data = bin.start(method='itemDetail', param='itemId=' + itemId)
+    s = data[0]["destailsDict"]
+    s = s.replace("[", "").replace("]", "").replace("}", "").replace("{", "").replace("'", "").replace("'", "").replace(
+        "\\xa0", "")
+    details = s.split("，")
+    titleAndItemImg = bin.itemImage(itemId)
+    title = titleAndItemImg[0]
+    itemImg = titleAndItemImg[1]
+    print(details)
+    return render(request, "商品详情分析.html", {'details': details, 'itemImg': itemImg, 'title': title, 'itemId': itemId})
 
 
 def test_data(request):
-    return render(request, "test_item_data.json")
+    url = request.get_full_path()
+    # url = 'http://localhost:9000/data/?price_range=0%2C1000&sales_range=0%2C1000&collect_range=0%2C1000&start_date=0&end_date=-1&limit=25&offset=0&search=&_=1524989156915 '
+    server = SearchServer()
+    data = server.start(url)
+    # data["total"] = 100
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
+
+def shop_data(request):
+    url = request.get_full_path()
+    # url = 'http://localhost:9000/data/?price_range=0%2C1000&sales_range=0%2C1000&collect_range=0%2C1000&start_date=0&end_date=-1&limit=25&offset=0&search=&_=1524989156915 '
+    server = SearchServer()
+    data = server.start(url)
+    # data["total"] = 100
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
+
+def brand_data(request):
+    url = request.get_full_path()
+    # url = 'http://localhost:9000/data/?price_range=0%2C1000&sales_range=0%2C1000&collect_range=0%2C1000&start_date=0&end_date=-1&limit=25&offset=0&search=&_=1524989156915 '
+    server = SearchServer()
+    data = server.start(url)
+    # data["total"] = 100
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
+
+def itemTrend(request):
+    itemId = request.GET['itemId']
+    bin = SearchServer()
+    data = bin.start(method='itemTrend', param='itemId=' + itemId)
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
+
+def shopTrend(request):
+    shopUrl = request.GET['shopUrl']
+    bin = SearchServer()
+    data = bin.start(method='shopTrend', param='shopUrl=' + shopUrl)
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
+
+def brandTrend(request):
+    brand = request.GET['brand']
+    bin = SearchServer()
+    data = bin.start(method='brandTrend', param='brandName=' + brand)
+    print(data)
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
+
+def itemDetail(request):
+    itemId = request.GET['itemId']
+    bin = SearchServer()
+    data = bin.start(method='itemDetail', param='itemId=' + itemId)
+    print(data)
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
+
+def itemSource(request):
+    itemId = request.GET['itemId']
+    bin = SearchServer()
+    data = bin.start(method='itemSource', param='itemId=' + itemId)
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
+
+def brandSearchDisplay(request):
+    brand = request.GET['brand']
+    bin = SearchServer()
+    data = bin.start(method='brandSearchDisplay', param='brandName=' + brand)
+    print(data)
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
+
+def brandTopShop(request):
+    brand = request.GET['brand']
+    bin = SearchServer()
+    data = bin.start(method='brandTopShop', param='brandName=' + brand)
+    print(data)
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
+
+def brandTopItem(request):
+    brand = request.GET['brand']
+    bin = SearchServer()
+    data = bin.start(method='brandTopItem', param='brandName=' + brand)
+    print(data)
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
+
+def shopSource(request):
+    shopUrl = request.GET['shopUrl']
+    bin = SearchServer()
+    data = bin.start(method='shopSource', param='shopUrl=' + shopUrl)
+    print(data)
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
+
+def brandCiYun(request):
+    brand = request.GET['brand']
+    bin = SearchServer()
+    data = bin.start(method='brandCiYun', param='brand=' + brand)
+    print(data)
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
+
+def shopCiYun(request):
+    shopUrl = request.GET['shopUrl']
+    bin = SearchServer()
+    data = bin.start(method='shopCiYun', param='shopUrl=' + shopUrl)
+    print(data)
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
+
+def itemCiYun(request):
+    itemId = request.GET['itemId']
+    bin = SearchServer()
+    data = bin.start(method='itemCiYun', param='itemId=' + itemId)
+    print(data)
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
+
+def brandShopArea(request):
+    brand = request.GET['brand']
+    bin = SearchServer()
+    data = bin.start(method='brandShopArea', param='brand=' + brand)
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
+
+def brandSource(request):
+    brand = request.GET['brand']
+    bin = SearchServer()
+    data = bin.start(method='brandSource', param='brand=' + brand)
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
+
+def itemWeekDisplay(request):
+    itemId = request.GET['itemId']
+    bin = SearchServer()
+    data = bin.start(method='itemWeekDisplay', param='itemId=' + itemId)
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
+
+def itemEmotion(request):
+    itemId = request.GET['itemId']
+    bin = SearchServer()
+    data = bin.start(method='itemEmotion', param='itemId=' + itemId)
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
+
+def shopTopItem(request):
+    shopUrl = request.GET['shopUrl']
+    bin = SearchServer()
+    data = bin.start(method='shopTopItem', param='shopUrl=' + shopUrl)
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
+
+def shopSearchDisplay(request):
+    shopUrl = request.GET['shopUrl']
+    bin = SearchServer()
+    data = bin.start(method='shopSearchDisplay', param='shopUrl=' + shopUrl)
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
+
+def shopEmotion(request):
+    shopUrl = request.GET['shopUrl']
+    bin = SearchServer()
+    data = bin.start(method='shopEmotion', param='shopUrl=' + shopUrl)
+    return HttpResponse(json.dumps(data), content_type="application/json")
 
 
 def test(requests):
     return render(requests, "test.html")
-
-
-def show_table(request):
-    if request.method == "GET":
-        print(request.GET)
-        limit = request.GET.get('limit')  # how many items per page
-        offset = request.GET.get('offset')  # how many items in total in the DB
-        search = request.GET.get('search')
-        sort_column = request.GET.get('sort')  # which column need to sort
-        order = request.GET.get('order')  # ascending or descending
-        if search:  # 判断是否有搜索字
-            all_records = models.Asset.objects.filter(id=search, asset_type=search, business_unit=search, idc=search)
-        else:
-            all_records = models.Asset.objects.all()  # must be wirte the line code here
-
-        if sort_column:  # 判断是否有排序需求
-            sort_column = sort_column.replace('asset_', '')
-            if sort_column in ['id', 'asset_type', 'sn', 'name', 'management_ip', 'manufactory',
-                               'type']:  # 如果排序的列表在这些内容里面
-                if order == 'desc':  # 如果排序是反向
-                    sort_column = '-%s' % (sort_column)
-                all_records = models.Asset.objects.all().order_by(sort_column)
-            elif sort_column in ['salt_minion_id', 'os_release', ]:
-                # server__ 表示asset下的外键关联的表server下面的os_release或者其他的字段进行排序
-                sort_column = "server__%s" % (sort_column)
-                if order == 'desc':
-                    sort_column = '-%s' % (sort_column)
-                all_records = models.Asset.objects.all().order_by(sort_column)
-            elif sort_column in ['cpu_model', 'cpu_count', 'cpu_core_count']:
-                sort_column = "cpu__%s" % (sort_column)
-                if order == 'desc':
-                    sort_column = '-%s' % (sort_column)
-                all_records = models.Asset.objects.all().order_by(sort_column)
-            elif sort_column in ['rams_size', ]:
-                if order == 'desc':
-                    sort_column = '-rams_size'
-                else:
-                    sort_column = 'rams_size'
-                all_records = models.Asset.objects.all().annotate(rams_size=Sum('ram__capacity')).order_by(sort_column)
-            elif sort_column in [
-                'localdisks_size', ]:  # using variable of localdisks_size because there have a annotation below of this line
-                if order == "desc":
-                    sort_column = '-localdisks_size'
-                else:
-                    sort_column = 'localdisks_size'
-                # annotate 是注释的功能,localdisks_size前端传过来的是这个值，后端也必须这样写，Sum方法是django里面的，不是小写的sum方法，
-                # 两者的区别需要注意，Sum（'disk__capacity‘）表示对disk表下面的capacity进行加法计算，返回一个总值.
-                all_records = models.Asset.objects.all().annotate(localdisks_size=Sum('disk__capacity')).order_by(
-                    sort_column)
-
-            elif sort_column in ['idc', ]:
-                sort_column = "idc__%s" % (sort_column)
-                if order == 'desc':
-                    sort_column = '-%s' % (sort_column)
-                all_records = models.Asset.objects.all().order_by(sort_column)
-
-            elif sort_column in ['trade_date', 'create_date']:
-                if order == 'desc':
-                    sort_column = '-%s' % sort_column
-                all_records = models.Asset.objects.all().order_by(sort_column)
-
-        all_records_count = all_records.count()
-
-        if not offset:
-            offset = 0
-        if not limit:
-            limit = 20  # 默认是每页20行的内容，与前端默认行数一致
-        pageinator = Paginator(all_records, limit)  # 开始做分页
-
-        page = int(int(offset) / int(limit) + 1)
-        response_data = {'total': all_records_count, 'rows': []}  # 必须带有rows和total这2个key，total表示总页数，rows表示每行的内容
-
-        for asset in pageinator.page(page):
-            ram_disk = get_ram_sum_size(asset.id)  # 获取磁盘和内存的大小
-            # 下面这些asset_开头的key，都是我们在前端定义好了的，前后端必须一致，前端才能接受到数据并且请求.
-            response_data['rows'].append({
-                "asset_id": '<a href="/asset/asset_list/%d" target="_blank">%d</a>' % (asset.id, asset.id),
-                "asset_sn": asset.sn if asset.sn else "",
-                "asset_business_unit": asset.business_unit if asset.business_unit else "",
-                "asset_name": asset.name if asset.name else "",
-                "asset_management_ip": asset.management_ip if asset.management_ip else "",
-                "asset_manufactory": asset.manufactory.manufactory if hasattr(asset, 'manufactory') else "",
-                "asset_type": asset.asset_type if asset.asset_type else "",
-                "asset_os_release": asset.server.os_release if hasattr(asset, 'server') else "",
-                "asset_salt_minion_id": asset.server.salt_minion_id if hasattr(asset, 'server') else "",
-                "asset_cpu_count": asset.cpu.cpu_count if hasattr(asset, 'cpu') else "",
-                "asset_cpu_core_count": asset.cpu.cpu_core_count,
-                "asset_cpu_model": asset.cpu.cpu_model if hasattr(asset, 'cpu') else "",
-                "asset_rams_size": ram_disk[0] if ram_disk[0] else "",
-                "asset_localdisks_size": ram_disk[1] if ram_disk[1] else "",
-                "asset_admin": asset.admin.username if asset.admin else "",
-                "asset_idc": asset.idc if asset.idc else "",
-                "asset_trade_date": asset.trade_date.strftime('%Y-%m-%d %H:%M') if asset.trade_date else "",
-                "asset_create_date": asset.create_date.strftime("%Y-%m-%d %H:%M") if asset.create_date else "",
-                "update_date": asset.update_date.strftime("%Y-%m-%d %H:%M") if asset.update_date else "",
-            })
-
-        return HttpResponse(json.dumps(response_data))  # 需要json处理下数据格式

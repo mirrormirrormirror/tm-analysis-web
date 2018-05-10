@@ -10,13 +10,13 @@
     <table width=100% style="text-align:right; margin-top: 20px; border-collapse:separate; border-spacing:10px;">
         <tr>
             <td class="td_name">销量范围：</td>
-            <td><input type="hidden" class="range-slider" id="sales_range" value="25,75"/></td>
+            <td><input type="hidden" class="range-slider" id="sales_range" value="0,5000"/></td>
             <td class="td_name">库存范围：</td>
-            <td><input type="hidden" class="range-slider" id="stock_range" value="25,75"/></td>
+            <td><input type="hidden" class="range-slider" id="stock_range" value="0,5000"/></td>
         </tr>
         <tr>
             <td class="td_name">收藏数范围：</td>
-            <td><input type="hidden" class="range-slider" id="collect_range" value="25,75"/></td>
+            <td><input type="hidden" class="range-slider" id="collect_range" value="0,5000"/></td>
 
             <td class="td_name">日期选择：</td>
             <td>
@@ -51,9 +51,9 @@
     $(function () {
         $('.range-slider').jRange({
             from: 0,
-            to: 100,
+            to: 10000,
             step: 1,
-            scale: [0, 25, 50, 75, 100],
+            scale: [0, 2000, 4000, 6000, 8000],
             format: '%s',
             width: 300,
             showLabels: true,

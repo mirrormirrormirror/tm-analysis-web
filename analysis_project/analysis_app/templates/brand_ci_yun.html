@@ -1,0 +1,54 @@
+<script src="../static/js/echarts.js"></script>
+<script src="../static/js/echarts-wordcloud.min.js"></script>
+<script>
+    var te
+    $(document).ready(function () {
+        $.ajax({
+            type: 'get',
+            url: "http://localhost:9000/brandCiYun?brand={{brand}}",
+            dataType: 'json',
+            success: function (info) {
+                dataDicList = []
+                for (var i = 0; i <= info.length - 1; i++) {
+                    var tmp = info[i];
+                    dataDicList.push({
+                        name: tmp[0],
+                        value: tmp[1]
+                    })
+                }
+
+                var myChart = echarts.init(document.getElementById('ci_yun'));
+                te = dataDicList
+                var brandOption = {
+                    series: [
+                        {
+                            type: 'wordCloud',
+                            gridSize: 3,
+                            sizeRange: [12, 100],
+                            rotationRange: [-90, 90],
+                            shape: 'pentagon',
+                            textStyle: {
+                                normal: {
+                                    color: function () {
+                                        return 'rgb(' + [
+                                            Math.round(Math.random() * 255),
+                                            Math.round(Math.random() * 255),
+                                            Math.round(Math.random() * 255)
+                                        ].join(',') + ')';
+                                    }
+                                },
+                                emphasis: {
+                                    shadowBlur: 10,
+                                    shadowColor: '#333'
+                                }
+                            },
+                            data: dataDicList
+                        }
+                    ]
+                };
+                myChart.setOption(brandOption);
+            }
+        });
+    });
+
+</script>

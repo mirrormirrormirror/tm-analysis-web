@@ -1,57 +1,69 @@
-
 <style>
-    #shop_keyword{
+    #shop_keyword {
         width: 99%;
         height: 99%;
     }
 </style>
-<div id="shop_keyword"  class="true_picture"></div>
+<div id="shop_keyword" class="true_picture"></div>
 <script type="text/javascript">
-    var myChart = echarts.init(document.getElementById('shop_keyword'));
 
-var option = {
-    tooltip: {
-        trigger: 'item',
-        formatter: "{a} <br/>{b}: {c} ({d}%)"
-    },
-    legend: {
-        orient: 'vertical',
-        x: 'left',
-        data:['山地自行车','自行车','凤凰牌','跑车','其他']
-    },
-    series: [
-        {
-            name:'关键词搜索来源',
-            type:'pie',
-            radius: ['50%', '70%'],
-            avoidLabelOverlap: false,
-            label: {
-                normal: {
-                    show: false,
-                    position: 'center'
+    $.ajax({
+        type: 'get',
+        url: "http://localhost:9000/shopSource?shopUrl={{shopUrl}}",
+        dataType: 'json',
+        success: function (info) {
+            dataName = []
+            dataValue = []
+            dataDicList = []
+            for (var i = 0; i <= info.length; i++) {
+                for (var key in info[i]) {
+                    dataName.push(key)
+                    dataValue.push(info[i][key])
+                    dataDicList.push({value: info[i][key], name: key})
+                }
+            }
+            var myChart = echarts.init(document.getElementById('shop_keyword'));
+            var option = {
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b}: {c} ({d}%)"
                 },
-                emphasis: {
-                    show: true,
-                    textStyle: {
-                        fontSize: '30',
-                        fontWeight: 'bold'
+                legend: {
+                    orient: 'vertical',
+                    x: 'left',
+                    data: dataName
+                },
+                series: [
+                    {
+                        name: '关键词搜索来源',
+                        type: 'pie',
+                        radius: ['50%', '70%'],
+                        avoidLabelOverlap: false,
+                        label: {
+                            normal: {
+                                show: false,
+                                position: 'center'
+                            },
+                            emphasis: {
+                                show: true,
+                                textStyle: {
+                                    fontSize: '30',
+                                    fontWeight: 'bold'
+                                }
+                            }
+                        },
+                        labelLine: {
+                            normal: {
+                                show: false
+                            }
+                        },
+                        data: dataDicList
                     }
-                }
-            },
-            labelLine: {
-                normal: {
-                    show: false
-                }
-            },
-            data:[
-                {value:335, name:'山地自行车'},
-                {value:310, name:'自行车'},
-                {value:234, name:'凤凰牌'},
-                {value:135, name:'跑车'},
-                {value:1548, name:'其他'}
-            ]
+                ]
+            };
+            myChart.setOption(option);
         }
-    ]
-};
-myChart.setOption(option);
+    });
+
+
 </script>

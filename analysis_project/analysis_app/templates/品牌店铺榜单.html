@@ -34,14 +34,14 @@
 
     /* ranklist */
     .ranklist {
-        width: 100%;
+        width: 90%;
         border: solid 1px #ddd;
         padding: 10px 10px 0 10px;
         float: right;
     }
 
     .ranklist li {
-        height: 35px;
+        height: 16px;
         line-height: 16px;
         overflow: hidden;
         position: relative;
@@ -80,16 +80,17 @@
     }
 </style>
 
-<h4>商品排名榜单</h4>
+<h4>店铺排名榜单</h4>
 <div class="ranklist">
     <ol>
-        {% for i in shopTopItem %}
+        {% for i in brandTopShop %}
         <li class="top">
 
-            <p><a href={{ i.0 }}
-                  title={{ i.2 }}>{{ i.2 }}</a></p><span class="num">{{ i.1 }}人气</span>
+            <p><a href={{ i.1 }}
+                  title={{ i.0 }}>{{ i.0 }}</a></p><span class="num">{{ i.2 }}人气</span>
         </li>
         {% endfor %}
+
     </ol>
     <div class="clear"></div>
 </div>

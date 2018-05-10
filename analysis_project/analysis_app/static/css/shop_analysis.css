@@ -28,8 +28,14 @@
     border: 1px solid #d1c8d0;
 }
 
-.source{
-    width: 33%;
+.sourceSource{
+    width: 35%;
+    height: 100%;
+    border: 1px solid #d1c8d0;
+    float: right;
+}
+.sourceTrend{
+    width: 62%;
     height: 100%;
     border: 1px solid #d1c8d0;
     float: left;

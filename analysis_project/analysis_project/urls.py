@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
-from analysis_app import views
+import analysis_app.views as views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,13 +28,36 @@ urlpatterns = [
     path('brand/', views.brand),
     path('dian_pu/', views.dian_pu),
     path('brand_search/', views.brand_search),
-    url(r'item_analysis', views.item_analysis),  #
+    url(r'item_analysis', views.item_analysis),
     url(r'^admin/', admin.site.urls),
-    url(r'data', views.test_data),
+    url(r'data/item/itemInfo', views.test_data),
+    url(r'data/shop/shopInfo', views.shop_data),
+    url(r'data/brand/brandInfo', views.brand_data),
+
+    url(r'itemTrend', views.itemTrend),
+    url(r'shopTrend', views.shopTrend),
+    url(r'brandTrend', views.brandTrend),
+    url(r'itemWeekDisplay', views.itemWeekDisplay),
+    url(r'itemEmotion', views.itemEmotion),
+    url(r'shopTopItem', views.shopTopItem),
+    url(r'shopSearchDisplay', views.shopSearchDisplay),
+    url(r'shopEmotion', views.shopEmotion),
+
+
+    url(r'itemDetail', views.itemDetail),  #
+    url(r'itemSource', views.itemSource),  #
+    url(r'brandSearchDisplay', views.brandSearchDisplay),
+    url(r'brandTopShop', views.brandTopShop),
+    url(r'brandTopItem', views.brandTopItem),
+    url(r'shopSource', views.shopSource),
+    url(r'brandCiYun', views.brandCiYun),
+    url(r'itemCiYun', views.itemCiYun),
+    url(r'shopCiYun', views.shopCiYun),
+    url(r'brandShopArea', views.brandShopArea),
+    url(r'brandSource', views.brandSource),
+
     url(r'test', views.test),
     url(r'index', views.example),
     url(r'register', views.register),
     url(r'login', views.login),
-
-    url(r'show_table', views.show_table)
 ]

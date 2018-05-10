@@ -1,50 +1,61 @@
-
 <style>
-    #brand_search_week{
+    #brand_search_week {
         width: 99%;
         height: 99%;
     }
 </style>
-<div id="brand_search_week"  class="true_picture"></div>
+<div id="brand_search_week" class="true_picture"></div>
 <script type="text/javascript">
-    var myChart = echarts.init(document.getElementById('brand_search_week'));
-var option = {
-    title: {
-        text: '品牌一周搜索排名展现'
-    },
-    tooltip: {
-        trigger: 'axis'
-    },
-    legend: {
-        data:['排名']
-    },
-    grid: {
-        left: '3%',
-        right: '4%',
-        bottom: '3%',
-        containLabel: true
-    },
-    toolbox: {
-        feature: {
-            saveAsImage: {}
+
+    $.ajax({
+        type: 'get',
+        url: "http://localhost:9000/brandSearchDisplay?brand={{brand}}",
+        dataType: 'json',
+        success: function (info) {
+
+
+            var myChart = echarts.init(document.getElementById('brand_search_week'));
+            var option = {
+                title: {
+                    text: '品牌一周搜索排名展现'
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: ['排名']
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                toolbox: {
+                    feature: {
+                        saveAsImage: {}
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [
+                    {
+                        name: '排名',
+                        type: 'line',
+                        stack: '总量',
+                        data: info
+                    }
+                ]
+            };
+            myChart.setOption(option);
         }
-    },
-    xAxis: {
-        type: 'category',
-        boundaryGap: false,
-        data: ['周一','周二','周三','周四','周五','周六','周日']
-    },
-    yAxis: {
-        type: 'value'
-    },
-    series: [
-        {
-            name:'排名',
-            type:'line',
-            stack: '总量',
-            data:[30, 45, 60, 10, 5, 25, 39]
-        }
-    ]
-};
-myChart.setOption(option);
+    });
+
+
 </script>
